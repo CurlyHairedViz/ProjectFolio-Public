@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Projectfolio.Models.Technology>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="d-flex mb-2">
+    <h1>Technologies</h1>
+    <div class="ms-auto "><a class="btn btn-primary " asp-action="Create">Create New</a></div>
+</div>
+
+<table class="table table-dark text-light mt-3">
+    <thead>
+        <tr class="table-light">
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReleaseYear)
+            </th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseYear)
+            </td>
+            <td>
+                <a class="btn btn-warning me-2" asp-action="Edit" asp-route-id="@item.TechnologyId">Edit</a> 
+                    <a class="btn btn-light me-2" asp-action="Details" asp-route-id="@item.TechnologyId">Details</a>
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.TechnologyId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

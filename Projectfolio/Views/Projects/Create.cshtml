@@ -1,0 +1,73 @@
+﻿@model Projectfolio.Models.Project
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h1 class="text-center">Add Project</h1>
+
+<hr />
+<div class="container row d-flex">
+    <div class="col-md-6 m-auto">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ProjectName" class="control-label"></label>
+                <input asp-for="ProjectName" class="form-control" />
+                <span asp-validation-for="ProjectName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDate" class="control-label"></label>
+                <input asp-for="StartDate" class="form-control" />
+                <span asp-validation-for="StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompletionDate" class="control-label"></label>
+                <input asp-for="CompletionDate" class="form-control" />
+                <span asp-validation-for="CompletionDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Owner" class="control-label"></label>
+                <input asp-for="Owner" class="form-control" />
+                <span asp-validation-for="Owner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProjectStatus" class="control-label"></label>
+                <select asp-for="ProjectStatus" class="form-control">
+                    <option value="">Select Status</option>
+                    <option value="Not Started">Not Started</option>
+                    <option value="In-Progress">In-Progress</option>
+                    <option value="Completed">Completed</option>
+                </select>
+                <span asp-validation-for="ProjectStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TechnologyId" class="control-label"></label>
+                <select asp-for="TechnologyId" class ="form-control" asp-items="ViewBag.TechnologyId"></select>
+            </div>
+            <br />
+            <div class="form-group d-flex justify-content-center">
+                <input type="submit" value="Create" class="btn btn-danger" />
+                
+            </div>
+
+            <div class="form-group d-flex justify-content-center pt-2">
+                <a asp-action="Index" class="btn btn-warning m-1">
+                    Back to Projects
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,29 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-image: url("../img/Network.jpg"); /* Image from https://pixabay.com/illustrations/abstract-geometric-world-map-1278017/ */
+    background-position: center;
+    color: white;
+}
+
+nav {
+    background-color: #E64A19;
+}
+
+.footer > .container {
+    line-height: 45px;
+}

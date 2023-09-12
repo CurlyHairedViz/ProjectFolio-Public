@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Projectfolio.Models.Project>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="d-flex text-light">
+    <div class="me-auto">
+        <h1>Projects</h1>
+    </div>
+    <div>
+        <a class="btn btn-primary rounded-pill text-light" asp-action="Create">Create New</a>
+    </div>
+</div>
+
+<hr />
+
+<div class="row g-3">
+    @foreach (var item in Model) {
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="card bg-dark text-light rounded">
+                
+                <div class="card-header text-center">
+                    <h4>@Html.DisplayFor(modelItem => item.ProjectName)</h4>
+                    <p class="text-muted">By @Html.DisplayFor(modelItem => item.Owner)</p>
+                </div>
+                <div class="card-header bg-success">
+                    <h5 class="text-center text-dark mt-2">@Html.DisplayFor(modelItem => item.Description)</h5>
+                </div>
+
+                <div class="card-body ">
+                    
+                    <div class="row m-4">
+                        <div class="col-6">@Html.DisplayNameFor(model => model.StartDate)</div>
+                        <div class="col-6">@Html.DisplayFor(modelItem => item.StartDate)</div>
+                    </div>
+                    <div class="row m-4">
+                        <div class="col-6">@Html.DisplayNameFor(model => model.CompletionDate)</div>
+                        <div class="col-6">@Html.DisplayFor(modelItem => item.CompletionDate)</div>
+                    </div>
+                    <div class="row m-4">
+                        <div class="col-6">@Html.DisplayNameFor(model => model.ProjectStatus)</div>
+                        <div class="col-6 text-warning">@Html.DisplayFor(modelItem => item.ProjectStatus)</div>
+                    </div>
+                    <div class="row m-4">
+                        <div class="col-6">@Html.DisplayNameFor(model => model.Technology)</div>
+                        <div class="col-6">@Html.DisplayFor(modelItem => item.Technology.Name)</div>
+                    </div>
+        
+                </div>
+
+                <div class="card-footer row g-0 d-flex justify-content-center text-center p-3">
+                    <div class="col-4"><a class="btn btn-primary rounded-pill" asp-action="Edit" asp-route-id="@item.ProjectId">Edit</a></div>
+                    <div class="col-4"><a class="btn btn-warning rounded-pill" asp-action="Details" asp-route-id="@item.ProjectId">Details</a></div>
+                    <div class="col-4"><a class="btn btn-danger rounded-pill" asp-action="Delete" asp-route-id="@item.ProjectId">Delete</a></div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
